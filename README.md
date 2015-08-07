@@ -22,7 +22,7 @@ Make sure you have installed all of the following prerequisites on your __develo
 
 ## Project initalization
 
-```shell
+```sh
 mkdir <app_name> && cd <app_name>
 yo djangularjs
 ```
@@ -32,7 +32,7 @@ The generator will ask you a few questions about your new application and will g
  2. Install project dependencies
  3. Run your server using grunt
 
-```shell
+```sh
 vagrant up # may take a while
 vagrant ssh
 cd /vagrant
