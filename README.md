@@ -105,15 +105,19 @@ See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#creates
 ## Grunt tasks
 
  - Run server:
-    - development mode: `(vagrant)@machine0 $ grunt serve` or `(vagrant)@machine0 $ python manage.py runserver 0.0.0.0:3000`
+    - development mode: `(vagrant)@machine0 $ grunt serve`[1]
     - production like mode (ie with minified assets etc.): `(vagrant)@machine0 $ grunt serve-production-insecure`
  - Run tests: 
     - all: `(vagrant)@machine0 $ grunt test`
     - front-end only: `grunt jshint karma:unit`
-    - back-end only: `(vagrant)@machine0 $ grunt django-manage:test` or `(vagrant)@machine0 $ python manage.py test --settings=server.settings.tests`
+    - back-end only: `(vagrant)@machine0 $ grunt django-manage:test`[2]
  - Compile stylesheets: `grunt sass`
  - Check/compile translations: `grunt translate`
 
+
+[1] `(vagrant)@machine0 $ python manage.py runserver 0.0.0.0:3000` works too
+
+[2] `(vagrant)@machine0 $ python manage.py test --settings=server.settings.tests` works too
 
 ## Generators
 
