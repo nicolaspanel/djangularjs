@@ -1,0 +1,7 @@
+---
+- name: Check /home/vagrant/.yamjam/ dir exists
+  file: path=/home/vagrant/.yamjam state=directory
+
+- name: Set yamjam configuration
+  sudo: yes
+  template: src=config.yaml dest=/home/vagrant/.yamjam/config.yaml

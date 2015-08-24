@@ -1,0 +1,7 @@
+<div class="core-feature-item">
+    <img ng-if="feature.img"
+         class="img-responsive"
+         ng-src="{{ feature.img | staticPath }}" >
+    <a ng-href="{{ feature.link }}" target="_blank"><h4 ng-bind="feature.name"></h4></a>
+    <p ng-bind-html="feature.descriptionKey | translate | safe"></p>
+</div>

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles:
+    - role: common
+      sudo: true
+
+- hosts: web_app
+  roles:
+    - role: iojs
+    - role: npm-dev-tools
+    - role: yamjam

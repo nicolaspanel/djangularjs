@@ -1,0 +1,96 @@
+<section class="auth signup-view container">
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading" translate="SIGN_UP.HEADING"></div>
+				<div class="panel-body">
+					<form name="signupForm" ng-submit="ctrl.signup(credentials)"
+						  class="signin form-horizontal no-padding" novalidate >
+						<div class="form-group">
+							<dl class="dl-horizontal">
+								<dt>
+									<label for="email" translate="SIGN_UP.FIELDS.EMAIL.LABEL"></label></dt>
+								<dd>
+									<input type="email"
+										   id="email"
+										   name="email"
+										   class="form-control"
+										   ng-model="credentials.email"
+										   required
+										   autocomplete="off"
+										   placeholder="{{ 'SIGN_UP.FIELDS.EMAIL.PLACEHOLDER'|translate }}" autofocus >
+								</dd>
+								<dd ng-if="signupForm.email.$invalid && signupForm.$showErrors"
+									ng-messages="signupForm.email.$error" class="error">
+									<span ng-message="email" >{{'SIGN_UP.FIELDS.EMAIL.INVALID'|translate}}</span>
+									<span ng-message="required" >{{'FIELD_REQUIRED'|translate}}</span>
+								</dd>
+							</dl>
+						</div>
+						<div class="form-group">
+							<dl class="dl-horizontal">
+								<dt>
+									<label for="username" translate="SIGN_UP.FIELDS.USERNAME.LABEL"></label></dt>
+								<dd>
+									<input type="text"
+										   id="username"
+										   name="username"
+										   class="form-control"
+										   ng-model="credentials.username"
+										   required
+										   slugify
+										   autocomplete="off"
+										   placeholder="{{ 'SIGN_UP.FIELDS.USERNAME.PLACEHOLDER'|translate }}">
+								</dd>
+								<dd ng-if="signupForm.username.$$rawModelValue !== signupForm.username.$viewValue
+										   && !signupForm.username.$invalid" class="warning">
+									<span translate="SIGN_UP.FIELDS.USERNAME.SLUGIFIED{:slug}"
+										  translate-values="{slug: signupForm.username.$modelValue}"></span>
+								</dd>
+								<dd ng-if="signupForm.username.$invalid && signupForm.$showErrors"
+									ng-messages="signupForm.username.$error" class="error">
+									<span ng-message="required" >{{'FIELD_REQUIRED'|translate}}</span>
+									<span ng-message="parse" >{{'FIELD_REQUIRED'|translate}}</span>
+								</dd>
+							</dl>
+
+
+						</div>
+						<div class="form-group" >
+							<dl class="dl-horizontal">
+								<dt>
+									<label for="password" translate="SIGN_UP.FIELDS.PASSWORD.LABEL"></label></dt>
+								<dd>
+									<password-strength ng-model="credentials.password"
+													   required
+													   placeholder="{{'SIGN_UP.FIELDS.PASSWORD.PLACEHOLDER'|translate}}"
+													   min-strength="15"
+													   id="password"
+													   name="password" ></password-strength>
+								</dd>
+								<dd ng-if="signupForm.password.$invalid && signupForm.$showErrors"
+									ng-messages="signupForm.password.$error" class="error">
+									<span ng-message="required" >{{'FIELD_REQUIRED'|translate}}</span>
+									<span ng-message="strength" >{{'SIGN_UP.FIELDS.PASSWORD.NOT_STRONG_ENOUGH'|translate}}</span>
+								</dd>
+							</dl>
+						</div>
+						<div class="form-group">
+							<dl class="dl-horizontal">
+								<dd>
+									<button type="submit"
+											class="btn btn-large btn-primary"
+											translate="SIGN_UP_ACTION"></button>
+								</dd>
+							</dl>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<span translate="SIGN_UP.ALREADY_REGISTERED_QUESTION"></span>&nbsp;
+					<a ui-sref="signin" href translate="SIGN_IN_ACTION"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

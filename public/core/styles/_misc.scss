@@ -1,0 +1,42 @@
+
+@import "variables";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.no-border {
+  border: 0 !important;
+}
+.no-padding { padding: 0 !important; }
+.no-padding-top { padding-top: 0 !important; }
+.no-padding-bottom { padding-bottom: 0 !important; }
+.padding-md { padding: 15px; }
+.padding-sm { padding: 10px; }
+.padding-xs { padding: 5px;  }
+.padding-lg { padding: 30px;  }
+.no-margin { margin: 0 !important; }
+.margin-md { margin: 15px; }
+.margin-sm { margin: 10px; }
+.margin-xs { margin: 5px;  }
+.margin-lg { margin: 30px;  }
+.no-margin-top { margin-top: 0 !important; }
+.no-margin-bottom { margin-bottom: 0 !important; }
+.no-border {border: none;}
+
+.success { color: $brand-success }
+.warning { color: $brand-warning }
+.danger { color: $brand-danger }
+
+.brand-bg.success {background-color: $brand-success}
+.brand-bg.warning {background-color: $brand-warning}
+.brand-bg.danger {background-color: $brand-danger}
+
+.whitesmoke-bg {
+  background-color: whitesmoke;
+}
+

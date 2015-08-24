@@ -1,0 +1,11 @@
+Django>=1.8.4, <1.9
+Fabric==1.10.1
+anyjson==0.3.3
+gunicorn>=19.3.0, <19.4
+six>=1.9, <1.10
+wsgiref==0.1.2
+yamjam>=0.1.7
+django_su>=0.4.7, <0.5
+djangorestframework>=3.1.0, <3.2
+django_compressor>=1.5, <1.6
+voluptuous

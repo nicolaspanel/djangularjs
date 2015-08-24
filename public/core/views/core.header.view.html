@@ -1,0 +1,25 @@
+<header ng-controller="HeaderController" class="header-view">
+    <flash ></flash>
+    <div class="container" ng-switch="$auth.isUserLoggedIn()">
+        <div class="navbar-header col-xs-6 col-sm-7 col-md-8 col-lg-8 no-padding">
+            <ul class="nav navbar-nav">
+                <a class="navbar-brand"
+                   ui-sref="home" translate="PROJECT_NAME"></a>
+          </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right" ng-switch-when="true">
+            <li><span ng-bind="$auth.user.username" ></span></li>
+            <li>
+                <a href="/authentication/logout/">
+                    <i class="glyphicon glyphicon-log-out"
+                       title="{{'SIGN_OUT_ACTION'|translate}}"></i>
+                </a>
+            </li>
+
+        </ul>
+        <div class="nav navbar-nav navbar-right" ng-switch-when="false">
+            <button ng-if="!$state.is('signin')" ui-sref="signin" class="btn btn-default navbar-btn" translate="SIGN_IN_ACTION"></button>
+            <button ng-if="!$state.is('signup')"  ui-sref='signup' class="btn btn-primary navbar-btn" translate="SIGN_UP_ACTION"></button>
+        </div>
+    </div>
+</header>

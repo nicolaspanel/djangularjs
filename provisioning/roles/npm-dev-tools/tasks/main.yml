@@ -1,0 +1,14 @@
+---
+- name: Install Phantomjs
+  apt: pkg=phantomjs state=installed
+  sudo: yes
+
+- name: Install common NPM packages
+  sudo: yes
+  npm: name={{ item }} state=present global=yes
+  with_items:
+      - yo
+      - bower
+      - grunt-cli
+      - generator-djangularjs
+      - protractor

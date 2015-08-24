@@ -1,0 +1,9 @@
+
+.core-feature-item {
+  @extend .list-group-item;
+  img {
+    height: 30px;
+    float: left;
+    margin-right: 4px;
+  }
+}

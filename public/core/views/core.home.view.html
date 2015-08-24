@@ -1,0 +1,29 @@
+<section>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h2 translate="PROJECT_NAME"></h2>
+            <p ng-bind-html="'PROJECT_DESCRIPTION' | translate | safe"></p>
+            <a class="btn btn-primary"
+               href="https://github.com/nicolaspanel/djangularjs" target="_blank"
+               translate="MORE_ACTION" ></a>
+        </div>
+	</div>
+    <div class="marketing">
+        <div class="container">
+            <div class="row " ng-init="categories=(featuresCatalogue | pluck:'category' | uniq)">
+                <div class="col-md-6 col-lg-4" ng-repeat="category in ::categories">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"
+                             translate="CATEGORY_TEXT"
+                             translate-values="{CATEGORY: category}"></div>
+                        <ul class="list-group">
+                            <feature-item ng-repeat="item in ::featuresCatalogue | filter:{category: category}"
+                                          feature="item"></feature-item>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

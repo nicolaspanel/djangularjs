@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<div ng-include="'{% static 'core/views/core.header.view.html' %}'" ></div>
+	<section ui-view></section>
+{% endblock %}

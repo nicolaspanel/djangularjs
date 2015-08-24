@@ -1,0 +1,58 @@
+---
+
+# Targeting specific OSes or distributions:
+#
+#   - `ansible_system`               → Linux, BSD, ...
+#   - `ansible_os_family`            → Debian, RedHat, ...
+#   - `ansible_distribution`         → Debian, Ubuntu, RedHat, ...
+#   - `ansible_distribution_release` → precise, wheezy, ...
+#   - `ansible_pkg_mgr`              → apt, yum, ...
+#   - `ansible_architecture`         → x86_64, x86_32, ...
+
+
+# Debian
+# ------
+
+- name: Adding APT repository key
+  when: ansible_os_family == 'Debian'
+  sudo: yes
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  tags:
+    - deps
+    - web
+    - iojs
+
+- name: Adding APT repository
+  when: ansible_os_family == 'Debian'
+  sudo: yes
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/iojs_{{iojs_version.split('.').0}}.x {{ansible_distribution_release}} main"
+  tags:
+    - deps
+    - web
+    - iojs
+
+- name: Installing io.js
+  sudo: yes
+  apt:
+    name: "iojs={{iojs_version}}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - deps
+    - web
+    - iojs
+
+- name: Updating NPM
+  sudo: yes
+  npm:
+    name: "npm"
+    global: yes
+    state: present
+  tags:
+    - deps
+    - web
+    - iojs
+    - npm

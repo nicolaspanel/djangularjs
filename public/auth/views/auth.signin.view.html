@@ -1,0 +1,73 @@
+<section class="auth signin-view container">
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading" translate="SIGN_IN.HEADING"></div>
+				<div class="panel-body">
+					<form name="signinForm" ng-submit="ctrl.signin(credentials)"
+						  class="signin form-horizontal no-padding" novalidate >
+						<div class="form-group" >
+							<dl class="dl-horizontal">
+								<dt>
+									<label for="signid-username" translate="SIGN_IN.FIELDS.USERNAME.LABEL"></label></dt>
+								<dd>
+									<input type="text"
+										   id="signid-username"
+										   name="username"
+										   class="form-control"
+										   ng-model="credentials.username"
+										   placeholder="{{::'SIGN_IN.FIELDS.USERNAME.PLACEHOLDER'|translate}}"
+										   required autofocus/>
+								</dd>
+								<dd ng-if="signinForm.username.$dirty && signinForm.username.$invalid && signinForm.$showErrors"
+									ng-messages="signinForm.username.$error" class="error">
+									<div ng-message="required">
+										<span translate="SIGN_IN.FIELDS.USERNAME.REQUIRED"></span>
+									</div>
+								</dd>
+							</dl>
+						</div>
+						<div class="form-group" >
+							<dl class="dl-horizontal">
+								<dt><label for="signid-username" translate="SIGN_IN.FIELDS.PASSWORD.LABEL"></label></dt>
+								<dd>
+									<input type="password"
+										   id="password"
+										   name="password"
+										   class="form-control "
+										   ng-model="credentials.password"
+										   required
+										   placeholder="{{::'SIGN_IN.FIELDS.PASSWORD.PLACEHOLDER'|translate}}" />
+								</dd>
+								<dd ng-if="signinForm.password.$dirty && signinForm.password.$invalid && signinForm.$showErrors"
+									ng-messages="signinForm.password.$error" class="error">
+									<span ng-message="required">
+										{{'FIELD_REQUIRED'|translate}}
+									</span>
+								</dd>
+								<dd >
+									<a translate="SIGN_IN.FIELDS.PASSWORD_FORGOTTEN_ACTION"
+										ng-click="ctrl.showForgottenPasswordModal()"></a>
+								</dd>
+							</dl>
+						</div>
+						<div class="form-group">
+							<dl class="dl-horizontal">
+								<dd>
+									<button type="submit"
+											class="btn btn-default" >
+										<span translate="SIGN_IN_ACTION"></span>
+									</button>
+								</dd>
+							</dl>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<span translate="SIGN_IN.NO_ACCOUNT_QUESTION"></span>&nbsp;
+					<a ui-sref="signup" href translate="SIGN_UP_ACTION"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,7 @@
+
+WEB_APP:
+  SECRET_KEY: "<%= secretKey %>"
+  DATABASES:
+    default:
+      ENGINE: "django.db.backends.sqlite3"
+      NAME: "/vagrant/dev_db.sqlite3"

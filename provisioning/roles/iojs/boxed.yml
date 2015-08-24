@@ -1,0 +1,11 @@
+---
+
+# Simple, straight playbook for boxed io.js installs
+
+- name: 'io.js boxed installation'
+
+  hosts: boxed
+
+  roles:
+    - '.'    # This role itself
+

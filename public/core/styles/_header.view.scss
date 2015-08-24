@@ -1,0 +1,19 @@
+
+.header-view {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-fixed-top;
+  &.navbar-default{
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li > span {
+    position: relative;
+    display: block;
+    padding: 15px 0;
+  }
+}
+

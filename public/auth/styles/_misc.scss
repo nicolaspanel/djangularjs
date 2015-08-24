@@ -1,0 +1,28 @@
+@import "../../core/styles/misc";
+
+
+@mixin dl-validator ($color, $bg, $border){
+  padding: 2px 0 1px 5px;
+  color: $color;
+  background: $bg;
+  border: 1px solid $border;
+  border-top-color: white;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  position: absolute;
+  z-index: 1;
+  right:15px;
+  left:15px;
+}
+
+.auth {
+  dl.dl-horizontal {
+    margin-bottom: 5px;
+  }
+  dd.warning {
+      @include dl-validator($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+  dd.error {
+      @include dl-validator($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  }
+}

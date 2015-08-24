@@ -1,0 +1,46 @@
+{
+  "staticUrl": "/static/",
+  "lib": {
+    "css": [
+      "public/_/angular-loading-bar/build/loading-bar.min.css"
+    ],
+    "js": [
+      "public/_/lodash/lodash.min.js",
+      "public/_/moment/min/moment.min.js",
+      "public/_/messageformat/messageformat.js",
+      "public/_/angular/angular.min.js",
+      "public/_/angular-animate/angular-animate.min.js",
+      "public/_/angular-bootstrap/ui-bootstrap-tpls.min.js",
+      "public/_/angular-cookies/angular-cookies.min.js",
+      "public/_/angular-loading-bar/build/loading-bar.min.js",
+      "public/_/angular-messages/angular-messages.min.js",
+      "public/_/angular-moment/angular-moment.min.js",
+      "public/_/angular-resource/angular-resource.min.js",
+      "public/_/angular-sanitize/angular-sanitize.min.js",
+      "public/_/angular-toolbox/angular-toolbox.min.js",
+      "public/_/angular-touch/angular-touch.min.js",
+      "public/_/angular-translate/angular-translate.min.js",
+      "public/_/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.min.js",
+      "public/_/angular-ui-router/release/angular-ui-router.min.js",
+      "public/_/angular-ui-router-title/angular-ui-router-title.js",
+      "public/_/restangular/dist/restangular.min.js"
+    ]
+  },
+  "scss": [
+    "public/*[!_]*/*[!tests]*/*.scss",
+    "public/config.scss"
+  ],
+  "css": ["dist/app.css"],
+  "js": [
+    "public/*.js",
+    "public/*[!_]*/*.js",
+    "public/*[!_]*/*[!tests]*/*.js"
+  ],
+  "html": [
+    "public/*[!_]*/*[!tests]*/*.html"
+  ],
+  "tests": [
+    "public/_/angular-mocks/angular-mocks.js",
+    "public/*[!_]*/tests/*.js"
+  ]
+}

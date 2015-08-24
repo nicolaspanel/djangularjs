@@ -1,0 +1,5 @@
+---
+
+# Pin iojs on this version. You can use wildcards here for minor or
+# patch version, but you must specify the major.
+iojs_version: '2.*'

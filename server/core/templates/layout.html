@@ -1,0 +1,75 @@
+{% load json_encoder %}
+{% load staticfiles %}
+{% load compress %}
+{% load assets %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title ng-bind="$title"></title>
+
+	<!-- General META -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Semantic META -->
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- Fav Icon -->
+    <link href="{% static 'core/img/brand/django-favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+    {% if debug %}
+        {% load_assets css %}
+    {% else %}
+        {% compress css %}
+        	<link rel="stylesheet" href="{% static 'full.min.css' %}">
+        {% endcompress %}
+    {% endif %}
+	<base href="/">
+
+	<!-- HTML5 Shim -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+    {% csrf_token %}
+<body ng-cloak class="ng-cloak">
+
+
+    <section > {% block content %}{% endblock %} </section>
+
+    {% if debug %}
+        {% load_assets js %}
+    {% else %}
+        {% compress js %}
+        <script type="text/javascript" src="{% static 'lib.js' %}"></script>
+        <script type="text/javascript" src="{% static 'app-with-templates.min.js' %}"></script>
+        {% endcompress %}
+    {% endif %}
+
+	<!--[if lt IE 9]>
+	<section class="browsehappy jumbotron hide">
+		<h1>Hello there!</h1>
+		<p>You are using an old browser which we unfortunately do not support.</p>
+		<p>Please <a href="http://browsehappy.com/">click here</a> to update your browser before using the website.</p>
+		<p><a href="http://browsehappy.com" class="btn btn-primary btn-lg" role="button">Yes, upgrade my browser!</a></p>
+	</section>
+	<![endif]-->
+
+	<!--Embedding The User Object-->
+	<script type="text/javascript">
+		angular.module('core')
+			.run(function ($auth) {
+                $auth.setLoggedUser({{ user | json | safe }});
+			})
+			.constant('staticRoot','{% static '' %}');
+	</script>
+</body>
+
+</html>

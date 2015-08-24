@@ -1,0 +1,30 @@
+---
+  - name: Common | Update apt cache
+    sudo: yes
+    apt: update-cache=yes upgrade=safe
+
+  - name: Common | Install common pkg
+    sudo: yes
+    apt: pkg={{ item }} state=installed
+    with_items:
+      - python-dev
+      - build-essential 
+      - python-virtualenv
+      - python-pip
+      - git
+      - wget
+      - python-software-properties
+      - gcc 
+      - gfortran 
+      - g++
+      - zsh
+      - libhdf5-dev
+      - language-pack-en
+    tags: common
+
+  - name: Set locale to en_US.UTF-8
+    sudo: true
+    locale_gen: name="en_US.UTF-8" state=present
+
+  - name: Setup virtualenv
+    pip: name=pip virtualenv=/vagrant
