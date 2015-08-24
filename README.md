@@ -1,4 +1,4 @@
-__djangularjs__ is a full-stack framework based on [Django](https://www.djangoproject.com/) and [AngularJS](https://angularjs.org/) focused on programmer happiness and sustainable productivity. 
+__DjangularJS__ is a full-stack framework based on [Django](https://www.djangoproject.com/) and [AngularJS](https://angularjs.org/) focused on programmer happiness and sustainable productivity. 
 
 The idea is to solve the common issues with connecting those frameworks, support daily development needs and help developers to use best practices.
 
@@ -17,9 +17,12 @@ Design goals:
 ## Conventions
 
  - __Instructions are to be run from the root directory of your project__
- - Instructions like `@host > ...` should be executed from the host (ie. from your computer) 
- - Instructions like `@machine0 > ...` should be executed from `machine0` (ie. inside vagrant, in the vm hosting your web app. See `vagrant.conf.json` for more info)
- - Instructions like `(vagrant)@machine0 > ...` expect `virtualenv` to be enabled. Use `@machine0 > cd /vagrant && source bin/activate` to enable `virtualenv`
+ - Instructions like `@host $ ...` should be executed from the host (ie. from your computer) 
+ - Instructions like `@machine0 $ ...` should be executed from `machine0` (ie. inside vagrant, in the vm hosting your web app)
+   Use `@host $ vagrant ssh machine0` to connect to `machine0`
+   See `vagrant.conf.json` for available machines
+ - Instructions like `(vagrant)@machine0 $ ...` expect `virtualenv` to be enabled. 
+   Use `@machine0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
 
  
 
@@ -30,16 +33,16 @@ Make sure you have installed all of the following prerequisites on your __develo
  - __[ansible](http://docs.ansible.com/ansible/intro_installation.html)__ - tool to manage your servers 
  - __[io.js](https://iojs.org/en/index.html)__ or __[node.js](https://nodejs.org/)__ (see also [nvm](https://github.com/creationix/nvm))
  - __[bower](http://bower.io/)__ - front-end dependencies manager 
-   `@host > npm install -g bower`
+   `@host $ npm install -g bower`
  - __[grunt](http://gruntjs.com/)__ __[yeoman](http://yeoman.io/)__ and __[generator-djangularjs](https://github.com/nicolaspanel/generator-djangularjs)__ - automation tools
-   `@host > npm install -g grunt-cli yo generator-djangularjs`
+   `@host $ npm install -g grunt-cli yo generator-djangularjs`
 
 
 ## Project setup
 
 ```sh
-@host > mkdir <project_name> && cd <project_name>
-@host > yo djangularjs
+@host $ mkdir <project_name> && cd <project_name>
+@host $ yo djangularjs
 ```
 
 The generator will ask you a few questions about your new application and will generate it for you. When the installation process is over, you will be able to 
@@ -52,30 +55,30 @@ The generator will ask you a few questions about your new application and will g
 
 ```sh
 // 1. Setup your development environment  
-@host > vagrant up # take a while
-@host > vagrant ssh machine0
-@machine0 > cd /vagrant && . bin/activate # activate virtualenv 
+@host $ vagrant up # take a while
+@host $ vagrant ssh machine0
+@machine0 $ cd /vagrant && . bin/activate # activate virtualenv 
 
 // 2. Install project dependencies
-(vagrant)@machine0 > npm install # install node/iojs dependencies
-(vagrant)@machine0 > bower install # install front-end dependencies
-(vagrant)@machine0 > pip install -r requirements/dev.txt
+(vagrant)@machine0 $ npm install # install node/iojs dependencies
+(vagrant)@machine0 $ bower install # install front-end dependencies
+(vagrant)@machine0 $ pip install -r requirements/dev.txt
 
 // 3. Apply third party apps migrations
-(vagrant)@machine0 > python manage.py migrate
+(vagrant)@machine0 $ python manage.py migrate
 
 // 4. Run tests to make sure everything is fine
-(vagrant)@machine0 > grunt test
+(vagrant)@machine0 $ grunt test
 
 // 5. Build css from Sass
-(vagrant)@machine0 > grunt sass
+(vagrant)@machine0 $ grunt sass
 
 // 6. Run your server using grunt
-(vagrant)@machine0 > grunt serve
+(vagrant)@machine0 $ grunt serve
 ```
 Application should then be available from your browser (see http://localhost:8000/)
 
-__NOTE__: to access admin UI (http://localhost:8000/admin), you need to create a superuser first:  `(vagrant)@machine0 > python manage.py createsuperuser`. See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#createsuperuser) for more info.
+__NOTE__: to access admin UI (http://localhost:8000/admin), you need to create a superuser first:  `(vagrant)@machine0 $ python manage.py createsuperuser`. See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#createsuperuser) for more info.
 
 
 # Quick reference
@@ -83,12 +86,12 @@ __NOTE__: to access admin UI (http://localhost:8000/admin), you need to create a
 ## Instructions
 
  - run server:
-    - development mode: `(vagrant)@machine0 > grunt serve` or `(vagrant)@machine0 > python manage.py runserver 0.0.0.0:3000`
-    - production like mode (ie with minified assets etc.): `(vagrant)@machine0 > grunt serve-production-insecure`
+    - development mode: `(vagrant)@machine0 $ grunt serve` or `(vagrant)@machine0 $ python manage.py runserver 0.0.0.0:3000`
+    - production like mode (ie with minified assets etc.): `(vagrant)@machine0 $ grunt serve-production-insecure`
  - run tests: 
-    - all: `(vagrant)@machine0 > grunt test`
+    - all: `(vagrant)@machine0 $ grunt test`
     - front-end only: `grunt jshint karma:unit`
-    - back-end only: `(vagrant)@machine0 > grunt django-manage:test` or `(vagrant)@machine0 > python manage.py test --settings=server.settings.tests`
+    - back-end only: `(vagrant)@machine0 $ grunt django-manage:test` or `(vagrant)@machine0 $ python manage.py test --settings=server.settings.tests`
  - compile stylesheets: `grunt sass`
  - check/compile translations: `grunt translate`
 
