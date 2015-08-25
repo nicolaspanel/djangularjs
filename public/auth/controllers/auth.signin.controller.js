@@ -11,7 +11,7 @@ angular.module('auth').controller('SigninController',
                 $scope.signinForm.$showErrors = true;
                 return;
             }
-            $http.post('/authentication/signin/', credentials)
+            $http.post('/signin/', credentials)
                 .success(function (response) {
                     $auth.setLoggedUser(response);
                     $state.go('home');

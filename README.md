@@ -46,7 +46,7 @@ Make sure you have installed all of the following prerequisites on your __develo
   
    `@host $ npm install -g bower`
    
- - __[grunt](http://gruntjs.com/)__ __[yeoman](http://yeoman.io/)__ and __[generator-djangularjs](https://github.com/nicolaspanel/generator-djangularjs)__ - automation tools
+ - __[grunt](http://gruntjs.com/)__, __[yeoman](http://yeoman.io/)__ and __[generator-djangularjs](https://github.com/nicolaspanel/generator-djangularjs)__ - automation tools
  
    `@host $ npm install -g grunt-cli yo generator-djangularjs`
 

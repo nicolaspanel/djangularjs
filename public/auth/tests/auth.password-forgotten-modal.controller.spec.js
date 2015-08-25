@@ -35,7 +35,7 @@
                 beforeEach(function(){
                     spyOn(fakeModal, 'close').and.returnValue();
                     var email = 'foo@bar.com';
-                    $httpBackend.expectPOST('/authentication/reset_password/', {email: email}).respond(200, {});
+                    $httpBackend.expectPOST('/reset_password/', {email: email}).respond(200, {});
                     ctrl.sendResetLinkTo(email);
                     $httpBackend.flush();
                 });

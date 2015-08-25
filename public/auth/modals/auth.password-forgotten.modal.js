@@ -18,7 +18,7 @@ angular.module('auth')
     })
 	.controller('PasswordForgottenModalController', function ($scope, $modalInstance, $http, $translate, $flash, $state) {
         this.sendResetLinkTo = function (email) {
-            $http.post('/authentication/reset_password/', {email: email})
+            $http.post('/reset_password/', {email: email})
                 .then(function () {
                     $flash.warn($translate.instant('PASSWORD_FORGOTTEN.DONE_WARN'));
                 })

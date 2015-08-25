@@ -12,7 +12,7 @@ angular.module('auth').controller('SignupController',
                 $scope.signupForm.$showErrors = true;
                 return;
             }
-            $http.post('/authentication/signup/', credentials)
+            $http.post('/signup/', credentials)
                 .success(function (response) {
                     $auth.setLoggedUser(response);
                     $state.go('home');

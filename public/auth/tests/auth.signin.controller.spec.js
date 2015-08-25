@@ -52,7 +52,7 @@
 			var response = {username:'toto',email: 'toto@foo.bar'};
 			beforeEach(function(){
 				spyOn($auth, 'setLoggedUser').and.returnValue();
-				$httpBackend.expectPOST('/authentication/signin/', credentials)
+				$httpBackend.expectPOST('/signin/', credentials)
 					.respond(200, response);
 				ctrl.signin(credentials);
 				$httpBackend.flush();

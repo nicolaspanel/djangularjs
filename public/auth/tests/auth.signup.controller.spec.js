@@ -24,7 +24,7 @@
 
 			beforeEach(function(){
 				spyOn($auth, 'setLoggedUser').and.returnValue();
-				$httpBackend.expectPOST('/authentication/signup/', credentials)
+				$httpBackend.expectPOST('/signup/', credentials)
 					.respond(200, response);
 				ctrl.signup(credentials);
 				$httpBackend.flush();
