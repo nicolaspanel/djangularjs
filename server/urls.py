@@ -5,7 +5,7 @@ Use `urlpatterns` to list both third parties and modules URLs.
 For more information please see: https://docs.djangoproject.com/en/1.8/topics/http/urls/
 
 NOTE: __generator-djangularjs__ may automatically modified this file.
-      To stay out of trouble please keep the **syntax** below.
+      To stay out of trouble please keep the **leave me here** below.
 """
 
 from django.conf.urls import include, url

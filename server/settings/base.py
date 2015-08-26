@@ -2,10 +2,13 @@
 Django settings for server project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
+https://docs.djangoproject.com/en/1.8/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
+https://docs.djangoproject.com/en/1.8/ref/settings/
+
+NOTE: __generator-djangularjs__ may automatically modified this file.
+      To stay out of trouble please keep the **leave me here** flag below.
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,6 +44,7 @@ INSTALLED_APPS = (
     'compressor',
     'server.core',
     'server.authentication',
+    # leave me here #
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,4 +130,3 @@ STATICFILES_DIRS = (
 )
 
 COMPRESS_JS_FILTERS = [] # disable JS minification (done with uglifyjs)
-
