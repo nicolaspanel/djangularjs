@@ -51,6 +51,8 @@ Make sure you have installed all of the following prerequisites on your __develo
    `@host $ npm install -g grunt-cli yo generator-djangularjs`
 
 
+__NOTE__: Even if __Vagrant__ and __Ansible__ are recommended, you can use __DjangularJS__ without them (it assumes you know what you are doing).
+
 ## Project setup
 
 ```sh
@@ -100,6 +102,38 @@ __NOTE__: to access admin UI (http://localhost:8000/admin), you need to create a
 See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#createsuperuser) for more info.
 
 
+# Secrets management
+
+__DjangularJS__ store sensitive information such as Django `SECRET_KEY`, passwords, etc. in Ansible group variables (ie. `provisioning/group_vars/*).
+
+To make sure they stay secret, you may use [Ansible Vault](http://docs.ansible.com/ansible/playbooks_vault.html) to encrypt them:
+
+```sh
+@host $ ansible-vault encrypt provisioning/group_vars/*
+```
+  
+Since your Ansible configuration now contains encrypted files, you have to configure vagrant to ask you for the password before trying 
+to provision your development environment. 
+ 
+To do so, edit `Vagrantfile` and uncomment the line `ansible.ask_vault_pass = "true"`
+
+You should now be able to run `@host $ vagrant provision`
+
+
+__Note__: 
+ - use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt
+ - Once group variables file are encrypted they can be included into your [version control system](https://en.wikipedia.org/wiki/Revision_control)
+ - During provisioning, ansible will create a file called `server/settings/conf.json`.:
+   - Make sure this file is ignored from your version control system.
+   - Don't update it. If your configuration changed then edit  `provisioning/group_vars/...` files and run provisioning again using `@host $ vagrant provision`
+
+  
+See following files for more information:
+ - `provisioning/roles.yml` 
+ - `provisioning/group_vars/dev`
+ - `server/settings/conf.json`
+ - `server/settings/base.py`
+
 # Quick reference
 
 ## Grunt tasks
@@ -138,6 +172,7 @@ See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#creates
  - new [Viewset](http://www.django-rest-framework.org/api-guide/viewsets/): `yo djangularjs:django-viewset <viewset-name>`
  - new [template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-template-tag <template-tag-name>`
  - new [template filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-template-filter <template-filter-name>`
+
 
 ## Project structure
 

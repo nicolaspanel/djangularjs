@@ -37,6 +37,7 @@ Vagrant.configure("2") do |config|
           "dev" => ["machine0", "machine1"],
           "all_groups:children" => ["dev"]
         }
+        # ansible.ask_vault_pass = "true"
         # ansible.limit = 'all' # Disable default limit
       end
     end

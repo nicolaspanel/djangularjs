@@ -12,18 +12,20 @@ NOTE: __generator-djangularjs__ may automatically modified this file.
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os, json
-from YamJam import yamjam
+import os
+import json, yaml
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SETTINGS_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(SETTINGS_DIR)
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-yamjam_cfg = yamjam()['WEB_APP']
-SECRET_KEY = yamjam_cfg['SECRET_KEY']
+with open(os.path.join(SETTINGS_DIR, 'conf.yml')) as conf_file:
+    # We use Ansible and Ansible vault to keep sensible informations secrets
+    sensible_cfg = yaml.load(conf_file)
+SECRET_KEY = sensible_cfg['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -73,8 +75,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 
 # Database
-# see provisioning/group_vars/dev and ~/.yamjam/config
-DATABASES = yamjam_cfg['DATABASES']
+DATABASES = sensible_cfg['DATABASES']  # see provisioning/group_vars/dev and/or server/settings/conf.json
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

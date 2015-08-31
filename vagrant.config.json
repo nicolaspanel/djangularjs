@@ -2,7 +2,7 @@
     "machine0": {
         "ip": "192.168.33.100",
         "memory": 1024,
-        "cpus": 2,
+        "cpus": 4,
         "ports": [
             {
                 "guest": 3000,

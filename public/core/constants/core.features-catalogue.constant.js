@@ -58,13 +58,6 @@ angular.module('core').constant('featuresCatalogue', [
         category: 'back'
     },
     {
-        name: 'Yamjam',
-        descriptionKey: /* translate */'YAMJAM_DESCRIPTION',
-        img: 'core/img/yamjam.png',
-        link: 'https://bitbucket.org/dundeemt/yamjam',
-        category: 'back'
-    },
-    {
         name: 'Grunt',
         descriptionKey: /* translate */'GRUNT_DESCRIPTION',
         img: 'core/img/grunt.jpg',

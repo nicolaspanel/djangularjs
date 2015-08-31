@@ -1,6 +1,7 @@
+PROJECT_ROOT: "/vagrant"
 
-WEB_APP:
-  SECRET_KEY: "<%= secretKey %>"
+WEB_APP_CONF:
+  SECRET_KEY: "<%= secretKey %>"  # generated during project creation (ie. yo djangularjs)
   DATABASES:
     default:
       ENGINE: "django.db.backends.sqlite3"
