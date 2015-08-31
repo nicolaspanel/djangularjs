@@ -2,4 +2,4 @@
   - name: Check server settings dir exists
     file: path="{{ PROJECT_ROOT }}/server/settings" state=directory
   - name: Set web app settings
-    template: src=conf.yml.j2 dest="{{ PROJECT_ROOT }}/server/settings/conf.yml" mode=0444
+    template: src=conf.yml.j2 dest="{{ PROJECT_ROOT }}/server/settings/.secrets.yml" mode=0444

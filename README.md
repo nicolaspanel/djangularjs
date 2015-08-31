@@ -123,7 +123,7 @@ You should now be able to run `@host $ vagrant provision`
 __Note__: 
  - Use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt
  - Once group variables file are encrypted they can be included into your [version control system](https://en.wikipedia.org/wiki/Revision_control)
- - During provisioning, ansible will create a file called `server/settings/conf.json`:
+ - During provisioning, ansible will create a file called `server/settings/.secrets.json`:
    - Make sure this file is ignored from your [version control system](https://en.wikipedia.org/wiki/Revision_control)
    - Don't update it. If your configuration change: 
      - Edit  `provisioning/group_vars/...` files 
@@ -182,7 +182,7 @@ See following files for more information:
 Main files/folders are described below
 ```
 . (project root)
-+-- provisioning/                 Ansible configuration (optional)
++-- provisioning/                 Ansible configuration (optional but recommended)
 |
 +-- public/                       AngularJS app (front-end)
 |  +-- _/                         contains bower packages (see .bowerrc)
@@ -234,9 +234,11 @@ Main files/folders are described below
 
 __NOTE__: You can create as much modules as needed but `core` modules are mandatory for both Django and AngularJS
 
+
 # Credits
 
 Inspired from [MEANJS](https://github.com/meanjs/mean)
+
 
 # License
 

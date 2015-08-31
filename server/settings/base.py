@@ -22,7 +22,7 @@ PROJECT_DIR = os.path.dirname(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-with open(os.path.join(SETTINGS_DIR, 'conf.yml')) as conf_file:
+with open(os.path.join(SETTINGS_DIR, '.secrets.yml')) as conf_file:
     # We use Ansible and Ansible vault to keep sensible informations secrets
     sensible_cfg = yaml.load(conf_file)
 SECRET_KEY = sensible_cfg['SECRET_KEY']
