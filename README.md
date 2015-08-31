@@ -24,9 +24,9 @@ __Design goals__:
  
    Use `@host $ vagrant ssh machine0` to connect to `machine0`
    
-   See `vagrant.conf.json` for available machines
+   Development machines are listed in `vagrant.conf.json` 
    
- - Instructions like `(vagrant)@machine0 $ ...` expect `virtualenv` to be enabled.
+ - Instructions like `(vagrant)@machine0 $ ...` expect `virtualenv` to be activated.
   
    Use `@machine0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
 
@@ -104,9 +104,9 @@ See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#creates
 
 # Secrets management
 
-__DjangularJS__ store sensitive information such as Django `SECRET_KEY`, passwords, etc. in Ansible group variables (ie. `provisioning/group_vars/*).
+__DjangularJS__ store sensitive information such as Django `SECRET_KEY`, passwords, etc. in Ansible group variables (see `provisioning/group_vars/*).
 
-To make sure they stay secret, you may use [Ansible Vault](http://docs.ansible.com/ansible/playbooks_vault.html) to encrypt them:
+To make sure they stay secret, you have to encrypt them using [Ansible Vault](http://docs.ansible.com/ansible/playbooks_vault.html):
 
 ```sh
 @host $ ansible-vault encrypt provisioning/group_vars/*
@@ -115,22 +115,25 @@ To make sure they stay secret, you may use [Ansible Vault](http://docs.ansible.c
 Since your Ansible configuration now contains encrypted files, you have to configure vagrant to ask you for the password before trying 
 to provision your development environment. 
  
-To do so, edit `Vagrantfile` and uncomment the line `ansible.ask_vault_pass = "true"`
+To do so, edit `Vagrantfile` and __uncomment the line__ `ansible.ask_vault_pass = "true"`
 
 You should now be able to run `@host $ vagrant provision`
 
 
 __Note__: 
- - use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt
+ - Use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt
  - Once group variables file are encrypted they can be included into your [version control system](https://en.wikipedia.org/wiki/Revision_control)
- - During provisioning, ansible will create a file called `server/settings/conf.json`.:
-   - Make sure this file is ignored from your version control system.
-   - Don't update it. If your configuration changed then edit  `provisioning/group_vars/...` files and run provisioning again using `@host $ vagrant provision`
+ - During provisioning, ansible will create a file called `server/settings/conf.json`:
+   - Make sure this file is ignored from your [version control system](https://en.wikipedia.org/wiki/Revision_control)
+   - Don't update it. If your configuration change: 
+     - Edit  `provisioning/group_vars/...` files 
+     - Run provisioning again using `@host $ vagrant provision`
 
   
 See following files for more information:
  - `provisioning/roles.yml` 
  - `provisioning/group_vars/dev`
+ - `provisioning/roles/web-app-conf`
  - `server/settings/conf.json`
  - `server/settings/base.py`
 
@@ -140,7 +143,7 @@ See following files for more information:
 
  - Run server:
     - development mode: `(vagrant)@machine0 $ grunt serve`[1]
-    - production like mode (ie with minified assets etc.): `(vagrant)@machine0 $ grunt serve-production-insecure`
+    - production like mode (ie with minified assets): `(vagrant)@machine0 $ grunt serve-production-insecure`
  - Run tests: 
     - all: `(vagrant)@machine0 $ grunt test`
     - front-end only: `grunt jshint karma:unit`
