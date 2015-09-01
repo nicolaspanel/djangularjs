@@ -1,6 +1,6 @@
 ---
 - name: Install Phantomjs
-  apt: pkg=phantomjs state=installed
+  apt: pkg=phantomjs state=latest
   sudo: yes
 
 - name: Install common NPM packages

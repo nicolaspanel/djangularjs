@@ -1,7 +1,7 @@
 'use strict';
 
 var ApplicationConfiguration = (function() {
-    var APP_NAME= '<%= slugifiedAppName %>';
+    var APP_NAME= 'app';
 	return {
 		name: APP_NAME,
 		dependencies: [

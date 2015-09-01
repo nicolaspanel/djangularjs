@@ -172,9 +172,8 @@ See following files for more information:
 
  - new module (or django app): `yo djangularjs:django-module <module-name>`
  - new [APIView](http://www.django-rest-framework.org/api-guide/views/): `yo djangularjs:django-api-view <view-name>`
- - new [Viewset](http://www.django-rest-framework.org/api-guide/viewsets/): `yo djangularjs:django-viewset <viewset-name>`
- - new [template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-template-tag <template-tag-name>`
- - new [template filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-template-filter <template-filter-name>`
+ - new [template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-templatetag <templatetag-name>`
+ - new [filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-filter <filter-name>`
 
 
 ## Project structure

@@ -29,4 +29,8 @@ tmp/
 .coverage
 
 public/*[!_]*/i18n/*.js
-server/settings/.* # used to store sensitive information
+
+server/**/.*  # used to store sensitive information
+
+package.json
+bower.json
