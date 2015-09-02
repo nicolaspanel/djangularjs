@@ -24,7 +24,7 @@ __Design goals__:
  
    Use `@host $ vagrant ssh dev0` to connect to `dev0`
    
-   Development machines are listed in `vagrant.conf.json` 
+   Development machines are listed in `provisioning/vagrant.yml` 
    
  - Instructions like `(vagrant)@dev0 $ ...` expect `virtualenv` to be activated.
   
