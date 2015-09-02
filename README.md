@@ -20,15 +20,15 @@ __Design goals__:
  
  - Instructions like `@host $ ...` should be executed from the host (ie. from your computer) 
  
- - Instructions like `@machine0 $ ...` should be executed from `machine0` (ie. inside vagrant, in the vm hosting your web app)
+ - Instructions like `@dev0 $ ...` should be executed from `dev0` (ie. inside vagrant, in the vm hosting your web app)
  
-   Use `@host $ vagrant ssh machine0` to connect to `machine0`
+   Use `@host $ vagrant ssh dev0` to connect to `dev0`
    
    Development machines are listed in `vagrant.conf.json` 
    
- - Instructions like `(vagrant)@machine0 $ ...` expect `virtualenv` to be activated.
+ - Instructions like `(vagrant)@dev0 $ ...` expect `virtualenv` to be activated.
   
-   Use `@machine0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
+   Use `@dev0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
 
  
 
@@ -36,9 +36,11 @@ __Design goals__:
 
 Make sure you have installed all of the following prerequisites on your __development__ machine:
 
- - __[vagrant](http://docs.vagrantup.com/v2/installation/)__ - easy way to create and configure lightweight, reproducible, and portable development environments.
+ - __[Vagrant](http://docs.vagrantup.com/v2/installation/)__ - easy way to create and configure lightweight, reproducible, and portable development environments.
  
- - __[ansible](http://docs.ansible.com/ansible/intro_installation.html)__ - tool to manage your servers
+ - __[Ansible](http://docs.ansible.com/ansible/intro_installation.html)__ - tool to manage your servers
+ 
+   Once __Ansible__ is installed (`@host $ ansible --version` to be sure), use `@host $ sudo ansible-galaxy install -r provisioning/requirements.yml` to install third party roles.
   
  - __[io.js](https://iojs.org/en/index.html)__ or __[node.js](https://nodejs.org/)__ (see also [nvm](https://github.com/creationix/nvm))
  
@@ -60,47 +62,68 @@ __NOTE__: Even if __Vagrant__ and __Ansible__ are recommended, you can use __Dja
 @host $ yo djangularjs
 ```
 
-The generator will ask you a few questions about your new application and will generate it for you. When the installation process is over, you will be able to 
+The generator will ask you a few questions about your new application and will generate it for you. 
+
+
+__Warning (for Windows user only)__:  Since Windows does not support [nfs](https://fr.wikipedia.org/wiki/Network_File_System) you have to disable it in your `Vagrantfile`.  Replace  `machine.vm.synced_folder ".", "/vagrant", type: "nfs"` by `machine.vm.synced_folder ".", "/vagrant"` 
+
+
+Since your have generated the project with the previous command, you should now be able to: 
  1. Setup your development environment 
  2. Install project dependencies
  3. Apply third party apps migrations
  4. Run tests to make sure everything is fine
  5. Build css from Sass
- 6. Run your server using grunt
+ 6. Generate translations for [angular-translate](https://github.com/angular-translate/angular-translate) (see [grunt-djangularjs-translate](https://github.com/nicolaspanel/grunt-djangularjs-translate) for more info)
+ 7. Run your server using grunt
+
 
 ```sh
 # 1. Setup your development environment  
 @host $ vagrant up # take a while
-@host $ vagrant ssh machine0
-@machine0 $ cd /vagrant && . bin/activate # activate virtualenv 
+@host $ vagrant ssh dev0
+@dev0 $ cd /vagrant && . bin/activate # activate virtualenv 
 
 # 2. Install project dependencies
-(vagrant)@machine0 $ npm install # install node/iojs dependencies
-(vagrant)@machine0 $ bower install # install front-end dependencies
-(vagrant)@machine0 $ pip install -r requirements/dev.txt
+(vagrant)@dev0 $ npm install # install node/iojs dependencies
+(vagrant)@dev0 $ bower install # install front-end dependencies
+(vagrant)@dev0 $ pip install -r requirements/dev.txt
 
 # 3. Apply third party apps migrations
-(vagrant)@machine0 $ python manage.py migrate
+(vagrant)@dev0 $ python manage.py migrate
 
 # 4. Run tests to make sure everything is fine
-(vagrant)@machine0 $ grunt test
+(vagrant)@dev0 $ grunt test
 
 # 5. Build css from Sass
-(vagrant)@machine0 $ grunt sass
+(vagrant)@dev0 $ grunt sass
 
-# 6. Run your server using grunt
-(vagrant)@machine0 $ grunt serve
+# 6. Generate translations
+(vagrant)@dev0 $ grunt translate
+
+# 7. Run your server using grunt
+(vagrant)@dev0 $ grunt serve
 ```
 
-Application should then be available from your browser (see http://localhost:8000/)
+Application should then be available from your browser (see http://localhost:9000/)
 
-__NOTE__: to access admin UI (http://localhost:8000/admin), you need to create a superuser first:  
-```sh
-(vagrant)@machine0 $ python manage.py createsuperuser
-```
+__Notes__: 
 
-See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#createsuperuser) for more info.
+ 1. you need to create a superuser to access admin UI (http://localhost:9000/admin) 
+ 
+   ```sh
+   (vagrant)@dev0 $ python manage.py createsuperuser
+   ```
+   
+   See [Django doc](https://docs.djangoproject.com/en/1.8/ref/django-admin/#createsuperuser) for more info.
 
+ 2. your development environment comes with 2 machines:
+    - `dev0` which hosts your web app
+    - `dev1` which hosts external services such as databases, brokers, dumps, etc. (using [Docker](https://www.docker.com/) or not)
+   
+   You can create as many machines as you like (as long as your computer can grant them memory)
+  
+   See `provisioning/vagrant.yml` for more information
 
 # Secrets management
 
@@ -142,19 +165,19 @@ See following files for more information:
 ## Grunt tasks
 
  - Run server:
-    - development mode: `(vagrant)@machine0 $ grunt serve`[1]
-    - production like mode (ie with minified assets): `(vagrant)@machine0 $ grunt serve-production-insecure`
+    - development mode: `(vagrant)@dev0 $ grunt serve`[1]
+    - production like mode (ie with minified assets): `(vagrant)@dev0 $ grunt serve-production-insecure`
  - Run tests: 
-    - all: `(vagrant)@machine0 $ grunt test`
+    - all: `(vagrant)@dev0 $ grunt test`
     - front-end only: `grunt jshint karma:unit`
-    - back-end only: `(vagrant)@machine0 $ grunt django-manage:test`[2]
+    - back-end only: `(vagrant)@dev0 $ grunt django-manage:test`[2]
  - Compile stylesheets: `grunt sass`
  - Check/compile translations: `grunt translate`
 
 
-[1] `(vagrant)@machine0 $ python manage.py runserver 0.0.0.0:3000` works too
+[1] `(vagrant)@dev0 $ python manage.py runserver 0.0.0.0:3000` works too
 
-[2] `(vagrant)@machine0 $ python manage.py test --settings=server.settings.tests` works too
+[2] `(vagrant)@dev0 $ python manage.py test --settings=server.settings.tests` works too
 
 ## Generators
 
@@ -227,7 +250,6 @@ Main files/folders are described below
 +-- bower.json                    front-end (ie bower) dependencies (mandatory)
 +-- assets.json                   special file used to locate front-end dependencies (mandatory)
 +-- gruntfile.js                  configuration file for Grunt (mandatory)
-+-- vagrant.config.json           list vagrant machines (optional but recommended)
 +-- Vagrantfile                   configuration file for Vagrant (optional but recommended)
 ```
 

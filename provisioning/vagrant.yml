@@ -1,0 +1,33 @@
+---
+dev0:
+  provider: virtualbox
+  memory: 1024
+  cpus: 4
+  ports:
+    - id: web-app
+      guest: 3000
+      host: 9000
+    - id: livereload
+      guest: 35729
+      host: 35729
+  groups:
+    - dev
+    - web_app
+    # - mongos
+
+dev1:
+  provider: virtualbox
+  memory: 1024
+  cpus: 2
+  ports:
+    - id: rabbitmq-management
+      guest: 15672
+      host: 15672
+  groups:
+    - dev
+    # - redis
+    # - rabbitmq
+    # - postgresql
+    # - mongod
+    # - mongoc
+    # ...

@@ -12,3 +12,6 @@
       - grunt-cli
       - generator-djangularjs
       - protractor
+
+- name: Setup virtualenv
+  pip: name=pip virtualenv={{ PROJECT_ROOT }}

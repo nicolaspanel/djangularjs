@@ -6,6 +6,22 @@
 
 - hosts: web_app
   roles:
-    - role: iojs
-    - role: npm-dev-tools
+    - role: dev-tools
     - role: web-app-conf
+
+- hosts: redis
+  roles:
+    - role: angstwad.docker_ubuntu
+      sudo: true
+  tasks:
+    - name: redis container
+      sudo: true
+      docker:
+        name: redis-service
+        image: redis:3
+        command: redis-server
+        state: started
+        expose: 6379
+        ports:
+         - "{{ REDIS.PORT }}:6379" # see group_vars/all
+        docker_api_version: 1.18

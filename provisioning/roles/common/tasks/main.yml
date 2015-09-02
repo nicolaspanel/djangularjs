@@ -1,7 +1,10 @@
 ---
   - name: Common | Update apt cache
     sudo: yes
-    apt: update-cache=yes upgrade=safe
+    apt:
+      update-cache: yes
+      upgrade: safe
+      cache_valid_time: 3600
 
   - name: Common | Install common pkg
     sudo: yes
@@ -26,5 +29,9 @@
     sudo: true
     locale_gen: name="en_US.UTF-8" state=present
 
-  - name: Setup virtualenv
-    pip: name=pip virtualenv=/vagrant
+  - name: "Build hosts file"
+    lineinfile:
+      dest: /etc/hosts
+      regexp: ".*{{ hostvars[item].ansible_hostname }}$"
+      line: "{{ hostvars[item].ansible_eth1.ipv4.address }} {{ hostvars[item].ansible_hostname }}"
+    with_items: groups['all']
