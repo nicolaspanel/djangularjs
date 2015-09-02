@@ -41,6 +41,7 @@
   ],
   "tests": [
     "public/_/angular-mocks/angular-mocks.js",
-    "public/*[!_]*/tests/*.js"
+    "public/*[!_]*/tests/*.js",
+    "public/_/messageformat/locale/*"
   ]
 }

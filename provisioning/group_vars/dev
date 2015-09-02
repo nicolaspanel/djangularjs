@@ -5,4 +5,4 @@ WEB_APP_CONF:
   DATABASES:
     default:
       ENGINE: "django.db.backends.sqlite3"
-      NAME: "/vagrant/dev_db.sqlite3"
+      NAME: "{{ PROJECT_ROOT }}/dev_db.sqlite3"

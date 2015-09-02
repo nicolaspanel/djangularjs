@@ -31,7 +31,6 @@ __Design goals__:
    Use `@dev0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
 
  
-
 ## Prerequisites
 
 Make sure you have installed all of the following prerequisites on your __development__ machine:

@@ -8,3 +8,4 @@ django_su>=0.4.7, <0.5
 djangorestframework>=3.1.0, <3.2
 django_compressor>=1.5, <1.6
 voluptuous
+PyYAML==3.11
