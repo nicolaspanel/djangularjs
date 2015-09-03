@@ -22,7 +22,7 @@ class APITestCase(test.APITestCase):
 
     def http_put(self, url, data, user=None, expected_status=status.HTTP_200_OK, data_format='json'):
         resp = self._get_client(user).put(url, data, format=data_format)
-        self.assertEqual(resp.status_code,expected_status)
+        self.assertEqual(resp.status_code, expected_status)
         return resp
 
     def assertMatchSchema(self, obj, schema):
