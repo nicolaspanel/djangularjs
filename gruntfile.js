@@ -2,9 +2,13 @@
 var assets = require('./assets');
 
 module.exports = function(grunt) {
-    require('load-grunt-tasks')(grunt);
     // Project Configuration
-
+    require('jit-grunt')(grunt, {
+        'django-manage': 'grunt-contrib-django',
+        'django-admin': 'grunt-contrib-django',
+        'ngtemplates': 'grunt-angular-templates',
+        'translate': 'grunt-djangularjs-translate'
+    });
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
@@ -210,26 +214,17 @@ module.exports = function(grunt) {
     });
 
     // Build task(s).
-    grunt.registerTask('buildjs', [
-        'jshint',
-        'ngAnnotate',
-        'ngtemplates',
-        'uglify',
-        'karma:min' // make sure minification did NOT break anything
-    ]);
-    
-    grunt.registerTask('buildcss', [
-        'sass',
-        'postcss',
-        'cssmin'
-    ]);
+    grunt.registerTask('buildjs', ['jshint:all', 'ngAnnotate:app', 'ngtemplates:app', 'uglify', 'karma:min']);
+    grunt.registerTask('buildcss', ['sass:all', 'postcss:dist', 'cssmin:dist']);
     grunt.registerTask('build', ['buildjs', 'buildcss', 'django-manage:collect', 'django-manage:compress']);
 
     // Test task(s).
     grunt.registerTask('test', ['django-manage:test', 'jshint', 'karma:unit']);
 
-    // Default task(s).
-    grunt.registerTask('makemessages', ['translate:all']); // 'django-manage:makemessages'
+    grunt.registerTask('makemessages', [
+        //'django-manage:makemessages',
+        'translate:all'
+    ]);
     grunt.registerTask('serve', ['django-manage:run-dev']);
     grunt.registerTask('serve-production-insecure', ['build', 'django-manage:run-prod']);
     grunt.registerTask('default', ['serve']);
