@@ -7,6 +7,6 @@ class TestLogoutView(APITestCase):
     fixtures = ['core_test_data']
 
     def test_get(self):
-        self.http_get('/logout/',
+        self.http_get(path='/logout/',
                       user=User.objects.get(username='johndoe'),
                       expected_status=status.HTTP_302_FOUND)

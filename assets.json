@@ -8,6 +8,7 @@
       "public/_/lodash/lodash.min.js",
       "public/_/moment/min/moment.min.js",
       "public/_/messageformat/messageformat.js",
+      "public/_/messageformat/locale/*.js",
       "public/_/angular/angular.min.js",
       "public/_/angular-animate/angular-animate.min.js",
       "public/_/angular-bootstrap/ui-bootstrap-tpls.min.js",
@@ -41,7 +42,6 @@
   ],
   "tests": [
     "public/_/angular-mocks/angular-mocks.js",
-    "public/*[!_]*/tests/*.js",
-    "public/_/messageformat/locale/*.js"
+    "public/*[!_]*/tests/*.js"
   ]
 }

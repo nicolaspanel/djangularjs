@@ -1,7 +1,7 @@
 ---
 dev0:
   provider: virtualbox
-  memory: 1024
+  memory: 2048
   cpus: 4
   ports:
     - id: web-app

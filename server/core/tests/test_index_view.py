@@ -6,12 +6,12 @@ class TestIndexView(APITestCase):
     fixtures = ['core_test_data']
 
     def test_get_when_logged_out(self):
-        resp = self.http_get('/', expected_status=200)
+        resp = self.http_get(path='/', expected_status=200)
         self.assertIsNotNone(resp.content)
         self.assertIsNone(resp.context['user'])
 
     def test_get_when_logged_in(self):
-        resp = self.http_get('/',
+        resp = self.http_get(path='/',
                              user=User.objects.get(username='johndoe'),
                              expected_status=200)
         self.assertIsNotNone(resp.content)

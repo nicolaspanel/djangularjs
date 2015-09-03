@@ -10,18 +10,23 @@ class APITestCase(test.APITestCase):
             client.logout()
         return client
 
-    def http_get(self, url, user=None, expected_status=status.HTTP_200_OK):
-        resp = self._get_client(user).get(url)
+    def http_get(self, path, user=None, expected_status=status.HTTP_200_OK, **kwargs):
+        resp = self._get_client(user).get(**dict({'path': path}, **kwargs))
         self.assertEqual(resp.status_code, expected_status)
         return resp
 
-    def http_post(self, url, data, user=None, expected_status=status.HTTP_201_CREATED, data_format='json'):
-        resp = self._get_client(user).post(url, data, format=data_format)
-        self.assertEqual(resp.status_code,expected_status)
+    def http_post(self, path, data=None, user=None, expected_status=status.HTTP_201_CREATED, **kwargs):
+        resp = self._get_client(user).post(**dict({'path': path, 'data': data}, **kwargs))
+        self.assertEqual(resp.status_code, expected_status)
         return resp
 
-    def http_put(self, url, data, user=None, expected_status=status.HTTP_200_OK, data_format='json'):
-        resp = self._get_client(user).put(url, data, format=data_format)
+    def http_put(self, path, data=None, user=None, expected_status=status.HTTP_200_OK, **kwargs):
+        resp = self._get_client(user).put(**dict({'path': path, 'data': data}, **kwargs))
+        self.assertEqual(resp.status_code, expected_status)
+        return resp
+
+    def http_delete(self, path, user=None, expected_status=status.HTTP_200_OK, **kwargs):
+        resp = self._get_client(user).delete(**dict({'path': path}, **kwargs))
         self.assertEqual(resp.status_code, expected_status)
         return resp
 

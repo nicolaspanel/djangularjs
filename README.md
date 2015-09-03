@@ -77,6 +77,9 @@ Since your have generated the project with the previous command, you should now 
  7. Run your server using grunt
 
 
+__Before you start__: take a look to `provisioning/vagrant.yml` and make sure your machine has enough memory.
+
+
 ```sh
 # 1. Setup your development environment  
 @host $ vagrant up # take a while
@@ -94,17 +97,14 @@ Since your have generated the project with the previous command, you should now 
 # 4. Run tests to make sure everything is fine
 (vagrant)@dev0 $ grunt test
 
-# 5. Build css from Sass
-(vagrant)@dev0 $ grunt sass
-
-# 6. Generate translations
-(vagrant)@dev0 $ grunt translate
+# 5+6. Build css from Sass and translations
+(vagrant)@dev0 $ grunt sass translate
 
 # 7. Run your server using grunt
 (vagrant)@dev0 $ grunt serve
 ```
 
-Application should then be available from your browser (see http://localhost:9000/)
+Your Web application should now be available from your browser (see http://localhost:9000/)
 
 __Notes__: 
 
@@ -123,6 +123,7 @@ __Notes__:
    You can create as many machines as you like (as long as your computer can grant them memory)
   
    See `provisioning/vagrant.yml` for more information
+  
 
 # Secrets management
 
@@ -143,20 +144,21 @@ You should now be able to run `@host $ vagrant provision`
 
 
 __Note__: 
- - Use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt
+ - Use `@host $ ansible-vault decrypt provisioning/group_vars/*` to decrypt files
  - Once group variables file are encrypted they can be included into your [version control system](https://en.wikipedia.org/wiki/Revision_control)
- - During provisioning, ansible will create a file called `server/settings/.secrets.json`:
+ - During provisioning, ansible will create a file called `server/settings/.secrets.yml`:
    - Make sure this file is ignored from your [version control system](https://en.wikipedia.org/wiki/Revision_control)
-   - Don't update it. If your configuration change: 
+   - Do NOT modify this file directly. If your configuration change then: 
      - Edit  `provisioning/group_vars/...` files 
      - Run provisioning again using `@host $ vagrant provision`
 
   
 See following files for more information:
  - `provisioning/roles.yml` 
+ - `provisioning/group_vars/all`
  - `provisioning/group_vars/dev`
  - `provisioning/roles/web-app-conf`
- - `server/settings/conf.json`
+ - `server/settings/.secrets.yml`
  - `server/settings/base.py`
 
 # Quick reference
