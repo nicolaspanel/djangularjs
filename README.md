@@ -127,7 +127,7 @@ __Notes__:
 
 # Secrets management
 
-__DjangularJS__ store sensitive information such as Django `SECRET_KEY`, passwords, etc. in Ansible group variables (see `provisioning/group_vars/*).
+__DjangularJS__ store sensitive information such as Django `SECRET_KEY`, passwords, etc. in Ansible group variables (see `provisioning/group_vars/*`).
 
 To make sure they stay secret, you have to encrypt them using [Ansible Vault](http://docs.ansible.com/ansible/playbooks_vault.html):
 
@@ -256,6 +256,40 @@ Main files/folders are described below
 ```
 
 __NOTE__: You can create as much modules as needed but `core` modules are mandatory for both Django and AngularJS
+
+
+# Stack
+
+## Front-end
+
+| Component  | Description |
+| ---------- | ----------- |
+| [AngularJS](https://angularjs.org/) | Superheroic JavaScript MVW Framework |
+| [Bootstrap](http://getbootstrap.com/) | Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development |
+| [angular-translate](https://angular-translate.github.io/) | __angular-translate__ makes your life much easier when it comes to i18n and l10n (internationalization) |
+| [Angular UI](https://angular-ui.github.io/) | The companion suite(s) to the AngularJS framework |
+| [Sass](http://sass-lang.com/) | The is the most mature, stable, and powerful professional grade CSS extension language in the world |
+
+
+## Back-end
+
+| Component  | Description |
+| ---------- | ----------- |
+| [Django](https://www.djangoproject.com/) | The Web framework for perfectionists with deadlines. |
+| [Django Rest Framework](http://www.django-rest-framework.org/) | powerful and flexible toolkit that makes it easy to build Web APIs |
+| [Django compressor](http://django-compressor.readthedocs.org/en/latest/) | Compresses linked and inline JavaScript or CSS into a single cached file |
+
+
+## Automation
+
+| Component  | Description |
+| ---------- | ----------- |
+| [Grunt](http://gruntjs.com/) | he JavaScript Task Runner |
+| [Yeoman](http://yeoman.io/) | The web's scaffolding tool for modern webapps |
+| [Karma](http://karma-runner.github.io/) | Spectacular Test Runner for Javascript |
+| [Bower](http://bower.io/) | A package manager for the web |
+| [Vagrant](https://www.vagrantup.com/) | Development environments made easy |
+| [Ansible](http://www.ansible.com/) | Simplest way to automate apps and IT infrastructure |
 
 
 # Credits
