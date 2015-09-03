@@ -262,8 +262,8 @@ __NOTE__: You can create as much modules as needed but `core` modules are mandat
 
 ## Front-end
 
-| Component  | Description |
-| ---------- | ----------- |
+| Component | Description |
+| :-------- | :---------- |
 | [AngularJS](https://angularjs.org/) | Superheroic JavaScript MVW Framework |
 | [Bootstrap](http://getbootstrap.com/) | Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development |
 | [angular-translate](https://angular-translate.github.io/) | __angular-translate__ makes your life much easier when it comes to i18n and l10n (internationalization) |
@@ -273,8 +273,8 @@ __NOTE__: You can create as much modules as needed but `core` modules are mandat
 
 ## Back-end
 
-| Component  | Description |
-| ---------- | ----------- |
+| Component | Description |
+| :-------- | :---------- |
 | [Django](https://www.djangoproject.com/) | The Web framework for perfectionists with deadlines. |
 | [Django Rest Framework](http://www.django-rest-framework.org/) | powerful and flexible toolkit that makes it easy to build Web APIs |
 | [Django compressor](http://django-compressor.readthedocs.org/en/latest/) | Compresses linked and inline JavaScript or CSS into a single cached file |
@@ -282,8 +282,8 @@ __NOTE__: You can create as much modules as needed but `core` modules are mandat
 
 ## Automation
 
-| Component  | Description |
-| ---------- | ----------- |
+| Component | Description |
+| :-------- | :---------- |
 | [Grunt](http://gruntjs.com/) | he JavaScript Task Runner |
 | [Yeoman](http://yeoman.io/) | The web's scaffolding tool for modern webapps |
 | [Karma](http://karma-runner.github.io/) | Spectacular Test Runner for Javascript |
