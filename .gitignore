@@ -30,7 +30,7 @@ tmp/
 
 public/*[!_]*/i18n/*.js
 
-server/**/.*  # used to store sensitive information
+server/settings/*.yml  # used to store sensitive information
 
 # used during dev (same as _<fileName> but with interpolations)
 package.json

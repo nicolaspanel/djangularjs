@@ -14,6 +14,60 @@ __Design goals__:
 
 # Getting started
 
+## Project structure
+
+Main files/folders are described below
+```
+. (project root)
++-- provisioning/                 Ansible configuration (optional but recommended)
+|
++-- public/                       AngularJS app (front-end)
+|  +-- _/                         contains bower packages (see .bowerrc)
+|  +-- core/                      main module (mandatory)
+|  +-- angular-module0/
+|  |  +-- constants/              contains angular constants for module0 (optional)
+|  |  +-- controllers/            contains angular controllers for module0 (optional)
+|  |  +-- directives/             contains angular directives for module0 (optional)
+|  |  +-- filters/                contains angular filters for module0 (optional)
+|  |  +-- i18n/                   contains translations used in module0 (optional)
+|  |  +-- img/                    contains images used in module0 (optional)
+|  |  +-- modals/                 contains modal views used in module0 (optional)
+|  |  +-- services/               contains angular services for module0 (optional)
+|  |  +-- styles/                 contains Sass' partials for both views and templates (optional)
+|  |  +-- templates/              contains templates (ie partial views) for both directives and modals (optional)
+|  |  +-- tests/                  contains module0's tests (optional but recommended)
+|  |  |  +-- *.spec.js            unit test (karma + jasmine) (optional)
+|  |  |  +-- *.e2e.js             protractor test (karma + jasmine) (optional)
+|  |  |  +-- module0.fake-data.js special file use to provide data on for your unit tests (optional)
+|  |  +-- views/                  contains views for module0 (optional)
+|  |  +-- module0.module.js       configuration file for module0 (mandatory)
+|  +-- ...
+|  +-- config.js                  global configuration file for the AngularJS app (mandatory)
+|  +-- config.scss                global configuration file and entry point for Sass (mandatory)
+|
++-- requirements/                 python dependencies for both development and production (mandatory)
+|
++-- server/                       Django project (back-end) (mandatory)
+|  +-- core/                      main module (mandatory)
+|  +-- django-module0
+|  |  +-- fixtures/               contains initial/test data for module0 (optional)
+|  |  +-- serializers/            contains module0's serialiazers (python module) (optional)
+|  |  +-- templates/              contains module0's templates (optional)
+|  |  +-- templatetags/           contains templatetags used in module0 (optional)
+|  |  +-- tests/                  contains module0's tests (should match test_*.py) (optional but recommended)
+|  |  +-- views/                  contains both APIViews and Viewsets (optional)
+|  |  +-- urls.py                 lists module0's routes (optional)
+|  +-- ...
+|  +-- settings/                  special folder containing Django settings (mandatory)
+|  +-- urls.py                    lists modules and third party routes (mandatory)
+|
++-- package.json                  npm (ie NodeJS) dependencies (mandatory)
++-- bower.json                    front-end (ie bower) dependencies (mandatory)
++-- assets.json                   special file used to locate front-end dependencies (mandatory)
++-- gruntfile.js                  configuration file for Grunt (mandatory)
++-- Vagrantfile                   configuration file for Vagrant (optional but recommended)
+```
+
 ## Conventions
 
  - __Instructions are to be run from the root directory of your project__
@@ -31,7 +85,7 @@ __Design goals__:
    Use `@dev0 $ cd /vagrant && source bin/activate` to enable `virtualenv`
 
  
-## Prerequisites
+## Prerequisites & Dependencies
 
 Make sure you have installed all of the following prerequisites on your __development__ machine:
 
@@ -54,7 +108,8 @@ Make sure you have installed all of the following prerequisites on your __develo
 
 __NOTE__: Even if __Vagrant__ and __Ansible__ are recommended, you can use __DjangularJS__ without them (it assumes you know what you are doing).
 
-## Project setup
+
+## Project Setup
 
 ```sh
 @host $ mkdir <project_name> && cd <project_name>
@@ -199,63 +254,6 @@ See following files for more information:
  - new [viewset](http://www.django-rest-framework.org/api-guide/viewsets/): `yo djangularjs:django-viewset <viewset-name>`
  - new [template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-templatetag <templatetag-name>`
  - new [filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-filter <filter-name>`
-
-
-## Project structure
-
-Main files/folders are described below
-```
-. (project root)
-+-- provisioning/                 Ansible configuration (optional but recommended)
-|
-+-- public/                       AngularJS app (front-end)
-|  +-- _/                         contains bower packages (see .bowerrc)
-|  +-- core/                      main module (mandatory)
-|  +-- angular-module0/
-|  |  +-- constants/              contains angular constants for module0 (optional)
-|  |  +-- controllers/            contains angular controllers for module0 (optional)
-|  |  +-- directives/             contains angular directives for module0 (optional)
-|  |  +-- filters/                contains angular filters for module0 (optional)
-|  |  +-- i18n/                   contains translations used in module0 (optional)
-|  |  +-- img/                    contains images used in module0 (optional)
-|  |  +-- modals/                 contains modal views used in module0 (optional)
-|  |  +-- services/               contains angular services for module0 (optional)
-|  |  +-- styles/                 contains Sass' partials for both views and templates (optional)
-|  |  +-- templates/              contains templates (ie partial views) for both directives and modals (optional)
-|  |  +-- tests/                  contains module0's tests (optional but recommended)
-|  |  |  +-- *.spec.js            unit test (karma + jasmine) (optional)
-|  |  |  +-- *.e2e.js             protractor test (karma + jasmine) (optional)
-|  |  |  +-- module0.fake-data.js special file use to provide data on for your unit tests (optional)
-|  |  +-- views/                  contains views for module0 (optional)
-|  |  +-- module0.module.js       configuration file for module0 (mandatory)
-|  +-- ...
-|  +-- config.js                  global configuration file for the AngularJS app (mandatory)
-|  +-- config.scss                global configuration file and entry point for Sass (mandatory)
-|
-+-- requirements/                 python dependencies for both development and production (mandatory)
-|
-+-- server/                       Django project (back-end) (mandatory)
-|  +-- core/                      main module (mandatory)
-|  +-- django-module0
-|  |  +-- fixtures/               contains initial/test data for module0 (optional)
-|  |  +-- serializers/            contains module0's serialiazers (python module) (optional)
-|  |  +-- templates/              contains module0's templates (optional)
-|  |  +-- templatetags/           contains templatetags used in module0 (optional)
-|  |  +-- tests/                  contains module0's tests (should match test_*.py) (optional but recommended)
-|  |  +-- views/                  contains both APIViews and Viewsets (optional)
-|  |  +-- urls.py                 lists module0's routes (optional)
-|  +-- ...
-|  +-- settings/                  special folder containing Django settings (mandatory)
-|  +-- urls.py                    lists modules and third party routes (mandatory)
-|
-+-- package.json                  npm (ie NodeJS) dependencies (mandatory)
-+-- bower.json                    front-end (ie bower) dependencies (mandatory)
-+-- assets.json                   special file used to locate front-end dependencies (mandatory)
-+-- gruntfile.js                  configuration file for Grunt (mandatory)
-+-- Vagrantfile                   configuration file for Vagrant (optional but recommended)
-```
-
-__NOTE__: You can create as much modules as needed but `core` modules are mandatory for both Django and AngularJS
 
 
 # Stack
