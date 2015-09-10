@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
-from server.util import APITestCase
+from server.util import TestCase
 
 
-class TestIndexView(APITestCase):
+class TestIndexView(TestCase):
     fixtures = ['core_test_data']
 
     def test_get_when_logged_out(self):

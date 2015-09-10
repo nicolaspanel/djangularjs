@@ -11,6 +11,7 @@ __Design goals__:
  - Modularity
  - Automation
  
+ 
 
 # Getting started
 
@@ -237,6 +238,12 @@ See following files for more information:
 
 ## Generators
 
+__DjangularJS__ comes with a [yeoman](http://yeoman.io/) generator called [generator-djangularjs](https://github.com/nicolaspanel/generator-djangularjs). 
+
+You should definitely use it as much as possible since it will help you to:
+ - save precious time
+ - keep your project tested and organized
+
 ### AngularJS generators
 
  - new [module](https://docs.angularjs.org/guide/module): `yo djangularjs:angular-module <module-name>`
@@ -250,10 +257,11 @@ See following files for more information:
 ### Django generators
 
  - new module (or django app): `yo djangularjs:django-module <module-name>`
- - new [api-view](http://www.django-rest-framework.org/api-guide/views/): `yo djangularjs:django-api-view <view-name>`
- - new [viewset](http://www.django-rest-framework.org/api-guide/viewsets/): `yo djangularjs:django-viewset <viewset-name>`
- - new [template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-templatetag <templatetag-name>`
- - new [filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-filter <filter-name>`
+ - new [DRF APIView](http://www.django-rest-framework.org/api-guide/views/): `yo djangularjs:django-api-view <view-name>`
+ - new [DRF ViewSet](http://www.django-rest-framework.org/api-guide/viewsets/): `yo djangularjs:django-viewset <viewset-name>`
+ - new [DRF Serializer](http://www.django-rest-framework.org/api-guide/serializers/): `yo djangularjs:django-serializer <serializer-name>`
+ - new [Django template tag](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-tags): `yo djangularjs:django-templatetag <templatetag-name>`
+ - new [Django filter](https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#writing-custom-template-filters): `yo djangularjs:django-filter <filter-name>`
 
 
 # Stack
@@ -264,17 +272,17 @@ See following files for more information:
 | :-------- | :---------- |
 | [AngularJS](https://angularjs.org/) | Superheroic JavaScript MVW Framework |
 | [Bootstrap](http://getbootstrap.com/) | Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development |
-| [angular-translate](https://angular-translate.github.io/) | __angular-translate__ makes your life much easier when it comes to i18n and l10n (internationalization) |
+| [angular-translate](https://angular-translate.github.io/) | Makes your life much easier when it comes to i18n and l10n (internationalization) |
 | [Angular UI](https://angular-ui.github.io/) | The companion suite(s) to the AngularJS framework |
-| [Sass](http://sass-lang.com/) | The is the most mature, stable, and powerful professional grade CSS extension language in the world |
+| [Sass](http://sass-lang.com/) | Most mature, stable, and powerful professional grade CSS extension language in the world |
 
 
 ## Back-end
 
 | Component | Description |
 | :-------- | :---------- |
-| [Django](https://www.djangoproject.com/) | The Web framework for perfectionists with deadlines. |
-| [Django Rest Framework](http://www.django-rest-framework.org/) | powerful and flexible toolkit that makes it easy to build Web APIs |
+| [Django](https://www.djangoproject.com/) | The Web framework for perfectionists with deadlines |
+| [Django Rest Framework](http://www.django-rest-framework.org/) | Powerful and flexible toolkit that makes it easy to build Web APIs |
 | [Django compressor](http://django-compressor.readthedocs.org/en/latest/) | Compresses linked and inline JavaScript or CSS into a single cached file |
 
 
@@ -282,7 +290,7 @@ See following files for more information:
 
 | Component | Description |
 | :-------- | :---------- |
-| [Grunt](http://gruntjs.com/) | he JavaScript Task Runner |
+| [Grunt](http://gruntjs.com/) | The JavaScript Task Runner |
 | [Yeoman](http://yeoman.io/) | The web's scaffolding tool for modern webapps |
 | [Karma](http://karma-runner.github.io/) | Spectacular Test Runner for Javascript |
 | [Bower](http://bower.io/) | A package manager for the web |

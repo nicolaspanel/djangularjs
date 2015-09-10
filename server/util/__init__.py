@@ -1,3 +1,3 @@
 
 from .validators import SchemaValidator
-from .tests import APITestCase
+from .test_case import TestCase

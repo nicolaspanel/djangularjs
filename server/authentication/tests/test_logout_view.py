@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
-from server.util import APITestCase
+from server.util import TestCase
 
 from rest_framework import status
 
-class TestLogoutView(APITestCase):
+class TestLogoutView(TestCase):
     fixtures = ['core_test_data']
 
     def test_get(self):

@@ -1,6 +1,6 @@
-from server.util import APITestCase
+from server.util import TestCase
 
-class TestSignupView(APITestCase):
+class TestSignupView(TestCase):
     fixtures = ['core_test_data']
 
     def test_signup_with_valid_credentials(self):
