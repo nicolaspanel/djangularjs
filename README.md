@@ -2,14 +2,12 @@ __DjangularJS__ is a full-stack framework based on [Django](https://www.djangopr
 
 It aims to solve the common issues with connecting those frameworks, support daily development needs and help developers to use best practices.
 
-__Status__: under active development
-
 
 __Design goals__:
  - [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
  - [Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
  - Modularity
- - Automation
+ - Automation (as much as possible!)
  
  
 
@@ -17,7 +15,13 @@ __Design goals__:
 
 ## Project structure
 
-Main files/folders are described below
+__DjangularJS__ comes with guidelines on how to organize your project. For example:
+ - __Django__ (ie Back-end) stuffs are located in `<project-name>/server` folder 
+ - __Angular__ (ie Front-end) stuffs are located in `<project-name>/public` folder
+ - __Ansible__ (ie provisioning) stuffs are located in `<project-name>/provisioning` folder
+
+The global structure is described below:
+
 ```
 . (project root)
 +-- provisioning/                 Ansible configuration (optional but recommended)
