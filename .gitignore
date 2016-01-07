@@ -28,7 +28,7 @@ tmp/
 *.log.*
 .coverage
 
-public/*[!_]*/i18n/*.js
+public/i18n/*.js
 
 server/settings/*.yml  # used to store sensitive information
 

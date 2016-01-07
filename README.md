@@ -29,12 +29,12 @@ The global structure is described below:
 +-- public/                       AngularJS app (front-end)
 |  +-- _/                         contains bower packages (see .bowerrc)
 |  +-- core/                      main module (mandatory)
+|  +-- i18n/                      contains translations for each language (optional)
 |  +-- angular-module0/
 |  |  +-- constants/              contains angular constants for module0 (optional)
 |  |  +-- controllers/            contains angular controllers for module0 (optional)
 |  |  +-- directives/             contains angular directives for module0 (optional)
 |  |  +-- filters/                contains angular filters for module0 (optional)
-|  |  +-- i18n/                   contains translations used in module0 (optional)
 |  |  +-- img/                    contains images used in module0 (optional)
 |  |  +-- modals/                 contains modal views used in module0 (optional)
 |  |  +-- services/               contains angular services for module0 (optional)
