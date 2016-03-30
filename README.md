@@ -98,8 +98,6 @@ Make sure you have installed all of the following prerequisites on your __develo
  
  - __[Ansible](http://docs.ansible.com/ansible/intro_installation.html)__ - tool to manage your servers
  
-   Once __Ansible__ is installed (`@host $ ansible --version` to be sure), use `@host $ sudo ansible-galaxy install -r provisioning/requirements.yml` to install third party roles.
-  
  - __[io.js](https://iojs.org/en/index.html)__ or __[node.js](https://nodejs.org/)__ (see also [nvm](https://github.com/creationix/nvm))
  
  - __[bower](http://bower.io/)__ - front-end dependencies manager
@@ -142,6 +140,7 @@ __Before you start__: take a look to `provisioning/vagrant.yml` and make sure yo
 
 ```sh
 # 1. Setup your development environment  
+@host $ sudo ansible-galaxy install -r provisioning/requirements.yml
 @host $ vagrant up # take a while
 @host $ vagrant ssh dev0
 @dev0 $ cd /vagrant && . bin/activate # activate virtualenv 
