@@ -34,8 +34,9 @@
   "css": ["dist/app.css"],
   "js": [
     "public/*.js",
-    "public/*[!_]*/*.js",
-    "public/*[!_]*/*[!tests]*/*.js"
+    "public/*[!(_|i18n)]*/*.js",
+    "public/*[!_]*/*[!tests]*/*.js",
+    "public/i18n/*.js"
   ],
   "html": [
     "public/*[!_]*/*[!tests]*/*.html"

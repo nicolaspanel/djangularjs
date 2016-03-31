@@ -62,7 +62,15 @@ module.exports = function(grunt) {
             }
         },
         translate: {
-            all: {}
+            all: {
+                src: [
+                    'public/*[!_]*/*.js',
+                    'public/*[!_]*/*[!tests]*/*.js',
+                    'public/*[!_]*/*[!tests]*/*.html'
+                ],
+                lang: ['en'],
+                dest: 'i18n'
+            }
         },
         ngtemplates:  {
             app:        {

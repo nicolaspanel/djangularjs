@@ -1,0 +1,72 @@
+{
+  "ANGULAR_DESCRIPTION": "Superheroic JavaScript MVW Framework",
+  "BOOTSTRAP_DESCRIPTION": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+  "I18N_DESCRIPTION": "<b>angular-translate</b> makes your life much easier when it comes to i18n and l10n",
+  "ANGULAR_UI_DESCRIPTION": "The companion suite(s) to the AngularJS framework.",
+  "SASS_DESCRIPTION": "<b>Sass</b> is the most mature, stable, and powerful professional grade CSS extension language in the world.",
+  "MOMENT_DESCRIPTION": "Parse, validate, manipulate, and display dates in JavaScript.",
+  "DJANGO_DESCRIPTION": "The Web framework for perfectionists with deadlines",
+  "DRF_DESCRIPTION": "<b>Django REST framework</b> is a powerful and flexible toolkit that makes it easy to build Web APIs.",
+  "GRUNT_DESCRIPTION": "The JavaScript Task Runner",
+  "YO_DESCRIPTION": "The web's scaffolding tool for modern webapps",
+  "KARMA_DESCRIPTION": "Spectacular Test Runner for Javascript",
+  "PROTRACTOR_DESCRIPTION": "End-to-end test framework for AngularJS applications",
+  "BOWER_DESCRIPTION": "A package manager for the web",
+  "VAGRANT_DESCRIPTION": "Development environments made easy.",
+  "ANSIBLE_DESCRIPTION": "<b>Ansible</b> is the simplest way to automate apps and IT infrastructure",
+  "SIGN_OUT_ACTION": "Sign out",
+  "PROJECT_NAME": "DjangularJS",
+  "SIGN_IN_ACTION": "Sign in",
+  "SIGN_UP_ACTION": "Sign up",
+  "PROJECT_DESCRIPTION": "Full-stack framework focused on programmer happiness and sustainable productivity",
+  "MORE_ACTION": "More on GitHub...",
+  "CATEGORY_TEXT": "{CATEGORY, select, front{Front-End} back{Back-End} automation{Automation} other{}} stuffs",
+  "SIGN_IN": {
+    "BAD_CREDENTIALS": "Invalid credentials",
+    "FIELDS": {
+      "USERNAME": {
+        "PLACEHOLDER": "your username or email...",
+        "LABEL": "Username or email",
+        "REQUIRED": "username or email required"
+      },
+      "PASSWORD": {
+        "PLACEHOLDER": "your password...",
+        "LABEL": "Password"
+      },
+      "PASSWORD_FORGOTTEN_ACTION": "(forgot password)"
+    },
+    "HEADING": "Welcome back",
+    "NO_ACCOUNT_QUESTION": "No account yet?"
+  },
+  "SIGN_UP": {
+    "BAD_CREDENTIALS": "Sorry but the username is already used",
+    "FIELDS": {
+      "EMAIL": {
+        "PLACEHOLDER": "your email...",
+        "INVALID": "This email is not valid",
+        "LABEL": "Email"
+      },
+      "USERNAME": {
+        "PLACEHOLDER": "your username...",
+        "LABEL": "Username",
+        "SLUGIFIED{:slug}": "Will be created as <b>{slug}</b>"
+      },
+      "PASSWORD": {
+        "PLACEHOLDER": "choose a password...",
+        "NOT_STRONG_ENOUGH": "This password is not strong enough",
+        "LABEL": "Passoword"
+      }
+    },
+    "HEADING": "Welcome on board",
+    "ALREADY_REGISTERED_QUESTION": "Already registered?"
+  },
+  "PASSWORD_FORGOTTEN": {
+    "DONE_WARN": "Since it is just an example you <b>won't receive any email</b>",
+    "EMAIL_PLACEHOLDER": "type in your email here...",
+    "TITLE": "Reset your password",
+    "DESCRIPTION": "Submit your email address and we’ll send you a link to reset your password.",
+    "SEND_ACTION": "Send"
+  },
+  "FIELD_REQUIRED": "This field is required"
+
+}

@@ -13,21 +13,14 @@ dev0:
   groups:
     - dev
     - web_app
-    # - mongos
 
-dev1:
-  provider: virtualbox
-  memory: 1024
-  cpus: 2
-  ports:
-    - id: rabbitmq-management
-      guest: 15672
-      host: 15672
-  groups:
-    - dev
-    # - redis
-    # - rabbitmq
-    # - postgresql
-    # - mongod
-    # - mongoc
-    # ...
+
+#dev1:
+#  provider: virtualbox
+#  memory: 1024
+#  cpus: 2
+#  ports: []
+#  groups:
+#    - dev
+#    - redis
+#     ...
